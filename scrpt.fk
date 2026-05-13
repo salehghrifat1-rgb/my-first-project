@@ -1,0 +1,31 @@
+// 1. اختيار العناصر من الصفحة
+const widthInput = document.getElementById('widthInput');
+const heightInput = document.getElementById('heightInput');
+const colorInput = document.getElementById('colorInput');
+const shape = document.getElementById('geometryShape');
+const areaResult = document.getElementById('areaResult');
+
+// 2. دالة التحديث والتشغيل
+function updateDesign() {
+    // جلب القيم من المدخلات
+    const width = parseInt(widthInput.value) || 0;
+    const height = parseInt(heightInput.value) || 0;
+    const color = colorInput.value;
+
+    // تحديث شكل العنصر بصرياً
+    shape.style.width = width + 'px';
+    shape.style.height = height + 'px';
+    shape.style.backgroundColor = color;
+
+    // حساب المساحة وتنسيق الرقم (إضافة فواصل)
+    const area = width * height;
+    areaResult.textContent = area.toLocaleString();
+}
+
+// 3. ربط الأحداث (التشغيل اللحظي عند التغيير)
+widthInput.addEventListener('input', updateDesign);
+heightInput.addEventListener('input', updateDesign);
+colorInput.addEventListener('input', updateDesign);
+
+// 4. تشغيل الدالة فور تحميل الصفحة لضبط القيم الابتدائية
+updateDesign();
