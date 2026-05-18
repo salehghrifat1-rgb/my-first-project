@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجري الاحترافي الأول | My Pro Store</title>
+    <style>
+        /* إعدادات الصفحة العامة */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0f172a;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* الهيدر (رأس الصفحة) */
+        header {
+            padding: 20px;
+            text-align: center;
+            background: #111827;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* الحاوية الرئيسية */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        /* بطاقة المنتج */
+        .card {
+            background: #1e293b;
+            width: 320px;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            text-align: center;
+            border: 1px solid #334155;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* صورة المنتج */
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* عنوان المنتج ووصفه */
+        .card h2 {
+            font-size: 22px;
+            margin: 15px 0 10px 0;
+        }
+
+        .card p {
+            color: #94a3b8;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        /* السعر */
+        .price {
+            color: #22c55e;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        /* زر الشراء */
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            background: #3b82f6;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.1s;
+        }
+
+        button:hover {
+            background: #2563eb;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        /* رسالة التفعيل عند الضغط */
+        #msg {
+            margin-top: 15px;
+            color: #22c55e;
+            font-weight: bold;
+            min-height: 24px; /* تحجز مساحة مسبقاً لتجنب اهتزاز التصميم */
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- رأس الصفحة -->
+    <header>🔥 متجري الإلكتروني الاحترافي الأول</header>
+
+    <!-- محتوى المتجر -->
+    <div class="container">
+        <div class="card">
+            <!-- صورة تفاعلية للساعة الذكية -->
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30" alt="ساعة ذكية">
+
+            <h2>ساعة ذكية إليد (Smart Watch)</h2>
+            <p>ساعة ذكية عالية الجودة تدعم تتبع الأنشطة الرياضية والمؤشرات الصحية بدقة عالية.</p>
+
+            <div class="price">$49.99</div>
+
+            <!-- زر التفعيل -->
+            <button onclick="buy()">إضافة إلى السلة</button>
+
+            <!-- مكان ظهور رسالة النجاح -->
+            <div id="msg"></div>
+        </div>
+    </div>
+
+    <!-- برمجة التفاعل والتفعيل -->
+    <script>
+        function buy(){
+            // تعديل النص وإظهاره بنجاح عند النقر
+            const msgElement = document.getElementById("msg");
+            msgElement.innerText = "✔ تم إضافة المنتج إلى السلة بنجاح!";
+            
+            // إضافة تأثير بصري سريع للزر
+            const button = document.querySelector("button");
+            button.style.background = "#16a34a";
+            setTimeout(() => {
+                button.style.background = "#3b82f6";
+            }, 500);
+        }
+    </script>
+
+</body>
+</html>
